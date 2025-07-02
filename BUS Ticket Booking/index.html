@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUS Ticket </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css">
+   <style>
+    html, body {
+    height: 100%; /* নিশ্চিত করুন HTML এবং Body সম্পূর্ণ উচ্চতা নেয় */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* অনুভূমিক স্ক্রলবার এড়ানোর জন্য */
+
+
+    body {
+             font-family: 'Inter', sans-serif;
+    background-color: #2b2b2b; /* Body-এর ব্যাকগ্রাউন্ড কালার ফুটারের সাথে মিলিয়ে দিন */
+    display: flex; /* Sticky footer এর জন্য Flexbox চালু করুন */
+    flex-direction: column; /* কন্টেন্টকে উল্লম্বভাবে সাজানোর জন্য */
+    min-height: 100vh; /* নিশ্চিত করে যে বডি অন্তত ভিউপোর্টের উচ্চতার সমান */
+        }
+
+main {
+    flex-grow: 1; /* main কন্টেন্টকে যতটুকু সম্ভব জায়গা নিতে দিন */
+    background-color: #f0f8ff; /* আপনার অন্য সেকশনগুলির (hero, impact ইত্যাদি) ব্যাকগ্রাউন্ড কালার */
+    /* যদি আপনার সেকশনগুলোর নিজস্ব ব্যাকগ্রাউন্ড থাকে, তাহলে এটি বাদ দিতে পারেন */
+}
+
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,.05);
+             position: fixed;
+            width:100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #333;
+        }
+         .btn-login-custom {
+            background-color: #ff5722;
+            border-color: #ff5722;
+            color: #fff;
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .hero-section {
+            background: linear-gradient(to right, #e0f2f7, #bbdefb);  /*ight blue gradient */
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Hide overflow from illustrations */
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.1);
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/bg/10.jpg') ; /* Placeholder for background illustrations */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2; /* Subtle background */
+            z-index: 0;
+            background-repeat: no-repeat;
+            
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 15px;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        .search-form-container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        .form-control:focus {
+            border-color: #ff5722;
+            box-shadow: 0 0 0 0.25rem rgba(255, 87, 34, 0.25);
+        }
+        .input-group-text {
+            background-color: #fff;
+            border-right: 0;
+            border-radius: 10px 0 0 10px;
+        }
+        .btn-search {
+            background-color: #ff5722;
+            border-color: #ff5722;
+            color: #fff;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            width:10px ;
+
+        }
+        .btn-search:hover {
+            background-color: #e64a19;
+            border-color: #e64a19;
+        }
+
+        /* ---------------------------------Impact Section --------------------------------------*/
+
+        .impact-section {
+            padding: 60px 0;
+            background-color: #f0f8ff;
+        }
+        .impact-card {
+            background-color: #fff;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 8px 4px 8px 6px rgba(0,0,0,.08);
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .impact-card h4 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 15px;
+        }
+        .impact-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+        .impact-card .icon {
+            font-size: 2.5rem;
+            color: #ff5722;
+            margin-bottom: 15px;
+        }
+        .impact-card.large-text h4 {
+            font-size: 2.5rem;
+        }
+
+        /* Custom illustration for impact section */
+        .impact-illustration {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        /* .button{ */
+
+        /* } */
+
+        /* ----------------------------------main-content-section---------------------------------- */
+.main-content-section {
+            background-color: #ffffff; /* White background for the content area as seen in the image */
+            border-radius: 15px; /* Slightly rounded corners for the content box */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            padding: 40px 20px; /* Padding inside the white content box */
+            max-width: 1200px; /* Max width similar to the image */
+            width: 90%; /* Responsive width */
+          margin: 50px auto;/* Center the white box horizontally with top/bottom margin */
+            display: flex; /* Use flexbox for inner content alignment */
+            align-items: center; /* Align items vertically in the middle */
+            justify-content: center; /* Center content horizontally */
+        }
+        .illustration-container {
+            text-align: center;
+        }
+        .illustration-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .text-content {
+            text-align: left; /* Align text to the left */
+            padding-left: 30px; /* Add some spacing from the image */
+        }
+        @media (max-width: 768px) {
+            .text-content {
+                text-align: center; /* Center text on small screens */
+                padding-left: 0;
+                margin-top: 30px; /* Add space between image and text on small screens */
+            }
+            .main-content-section {
+                padding: 30px 15px;
+                margin: 30px auto;
+            }
+        }
+        .app-badges img {
+            height: 40px; /* Adjust badge height as needed */
+            margin-right: 15px; /* Spacing between badges */
+            margin-top: 20px; /* Spacing below the paragraph */
+            display: inline;
+        }
+        .app-badges img:last-child {
+            margin-right: 0;
+        }
+        
+        /*-------------------------------------------- Popular car  routes--------------------------------------------------*/
+
+.section-header {
+            text-align: center;
+            padding: 60px 20px 40px; /* Top, horizontal, bottom padding */
+        }
+        .section-header h1 {
+            font-size: 2.8rem; /* Adjust font size as per image */
+            font-weight: 700; /* Bolder font for the heading */
+            color: #2c3e50; /* Darker text color for heading */
+            margin-bottom: 20px;
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6c757d; /* Slightly lighter text color for description */
+            max-width: 800px;
+            margin: 0 auto; /* Center the paragraph */
+            line-height: 1.6;
+        }
+
+        .routes-grid {
+            padding-bottom: 80px; /* Padding at the bottom of the section */
+        }
+
+        .route-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px; /* Spacing between route items */
+            font-size: 1.05rem;
+            color: #34495e; /* Text color for route names */
+        }
+        .route-item i {
+            font-size: 1.4rem; /* Icon size */
+            color: #6a8ba7; /* Icon color, slightly bluish-grey */
+            margin-right: 15px; /* Space between icon and text */
+            min-width: 30px; /* Ensures consistent alignment even with varied text length */
+        }
+
+        /* Responsive adjustments for columns */
+        @media (max-width: 991.98px) { /* For medium and small devices */
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+            .section-header p {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 767.98px) { /* For small devices */
+            .section-header {
+                padding: 40px 15px 30px;
+            }
+            .section-header h1 {
+                font-size: 1.8rem;
+            }
+            .route-item {
+                font-size: 0.95rem;
+            }
+            .route-item i {
+                font-size: 1.2rem;
+            }
+        }
+.car-routes{
+    font-family: Arial, sans-serif;
+    color: #333;
+    
+}
+
+/*----------------------------------- Popular bus  operators------------------------------ */
+.section-header {
+            text-align: center;
+            padding: 60px 20px 40px; /* Top, horizontal, bottom padding */
+        }
+        .section-header h1 {
+            font-size: 2.8rem; /* Adjust font size as per image */
+            font-weight: 700; /* Bolder font for the heading */
+            color: #2c3e50; /* Darker text color for heading */
+            margin-bottom: 20px;
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6c757d; /* Slightly lighter text color for description */
+            max-width: 800px;
+            margin: 0 auto; /* Center the paragraph */
+            line-height: 1.6;
+        }
+
+        .operators-grid {
+            padding-bottom: 80px; /* Padding at the bottom of the section */
+        }
+
+        .operator-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px; /* Spacing between operator items */
+            font-size: 1.05rem;
+            color: #34495e; /* Text color for operator names */
+        }
+        .operator-item i {
+            font-size: 1.4rem; /* Icon size */
+            color: #6a8ba7; /* Icon color, slightly bluish-grey */
+            margin-right: 15px; /* Space between icon and text */
+            min-width: 30px; /* Ensures consistent alignment even with varied text length */
+            text-align: center; /* Center icon within its min-width */
+        }
+
+        /* Responsive adjustments for columns */
+        @media (max-width: 991.98px) { /* For medium and small devices */
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+            .section-header p {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 767.98px) { /* For small devices */
+            .section-header {
+                padding: 40px 15px 30px;
+            }
+            .section-header h1 {
+                font-size: 1.8rem;
+            }
+            .operator-item {
+                font-size: 0.95rem;
+            }
+            .operator-item i {
+                font-size: 1.2rem;
+            }
+        }
+
+/*-------------------------------- testimonial-section------------------------------------- */
+   .testimonial-section {
+            width: 100%;
+            max-width: 1000px; /* Max width for the carousel container */
+            padding: 20px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-header .sub-heading {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        .section-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .carousel-item-wrapper {
+            display: flex;
+            justify-content: center; /* Center the card within the carousel item */
+            padding: 0 50px; /* Padding for arrows to fit on smaller screens */
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: left;
+            position: relative;
+            z-index: 10;
+            min-height: 320px; /* Consistent height for cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%; /* Take full width of its container */
+            max-width: 600px; /* Limit max width for the main card */
+            margin: 0 auto; /* Center the card horizontally */
+        }
+
+        .testimonial-card .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: #e0e6eb; /* Light grey for the quote icon */
+            z-index: 1;
+            line-height: 1;
+        }
+
+        .testimonial-card .user-profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card .review-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .testimonial-card .user-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .testimonial-card .user-location {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        /* Bootstrap Carousel Control Styling (Arrows) */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 45px;
+            height: 45px;
+            background-color: #ffffff;
+            border: 1px solid #e0e6eb;
+            border-radius: 50%;
+            color: #6a8ba7; /* Arrow icon color */
+            opacity: 1; /* Make arrows always visible */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background-color: #f8f9fa; /* Slightly change on hover */
+            color: #4682b4;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-image: none; /* Remove default Bootstrap icons */
+        }
+        .carousel-control-prev-icon::before {
+            font-family: "Font Awesome 6 Free"; /* Use Font Awesome */
+            font-weight: 900;
+            content: "\f053"; /* fa-chevron-left */
+            color: #6a8ba7;
+        }
+        .carousel-control-next-icon::before {
+            font-family: "Font Awesome 6 Free"; /* Use Font Awesome */
+            font-weight: 900;
+            content: "\f054"; /* fa-chevron-right */
+            color: #6a8ba7;
+        }
+        .carousel-control-prev {
+            left: -20px; /* Position relative to the container */
+        }
+        .carousel-control-next {
+            right: -20px; /* Position relative to the container */
+        }
+        /* Bootstrap Carousel Indicators (Dots) */
+        .carousel-indicators [data-bs-target] {
+            width: 10px;
+            height: 10px;
+            background-color: #b0c4de; /* Inactive dot color */
+            border-radius: 50%;
+            margin: 0 6px;
+            opacity: 1; /* Ensure dots are visible */
+            transition: all 0.3s ease;
+            border: none; /* Remove border */
+        }
+        .carousel-indicators .active {
+            width: 25px; /* Wider for active dot */
+            border-radius: 5px; /* Rounded rectangle for active dot */
+            background-color: #4682b4; /* Active dot color */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+        @media (max-width: 767.98px) {
+            .section-header h1 {
+                font-size: 1.8rem;
+            }
+            .testimonial-card {
+                min-height: auto;
+                padding: 25px;
+            }
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 40px;
+                height: 40px;
+                left: 0; /* Align arrows to the edge of the screen */
+                right: 0;
+            }
+            .carousel-item-wrapper {
+                padding: 0 20px; /* Reduce padding for arrows on small screens */
+            }
+         } 
+/* ---------------------------------------------Jatri Section-------------------------------------- */
+.jatri-section {
+    background-color: #fff; /* White background for the section */
+    padding: 80px 0; /* Adjust padding as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow similar to the image */
+}
+
+.jatri-illustration {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Ensures no extra space below the image */
+    margin: 0 auto; /* Center image for smaller screens */
+}
+
+.jatri-partner-app {
+    color: #6c757d; /* Muted grey color */
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.jatri-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #343a40; /* Darker text color */
+    margin-bottom: 20px; 
+    line-height: 1.2;
+}
+
+.jatri-description {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 550px; /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-google-play {
+    display: inline-block;
+}
+
+.google-play-badge {
+    height: 60px; /* Adjust size as needed */
+    width: auto;
+}
+
+.learn-more {
+    color: #007bff; /* Bootstrap primary blue or similar */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.learn-more:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.learn-more .arrow {
+    margin-left: 5px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.learn-more:hover .arrow {
+    transform: translateX(3px);
+}
+
+/* Responsive adjustments */
+@media (min-width: 992px) { /* Large devices (desktops) */
+    .jatri-description {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 767.98px) { /* Small devices (tablets and phones) */
+    .jatri-heading {
+        font-size: 2.2rem;
+    }
+    .jatri-description {
+        font-size: 1rem;
+    }
+    .jatri-section {
+        padding: 50px 0;
+    }
+    .google-play-badge {
+        height: 50px;
+    }
+}
+
+@media (max-width: 575.98px) { /* Extra small devices (phones) */
+    .jatri-heading {
+        font-size: 1.8rem;
+    }
+    .jatri-partner-app {
+        font-size: 0.9rem;
+    }
+    .learn-more {
+        font-size: 1rem;
+    }
+    .d-flex.flex-column.flex-sm-row {
+        align-items: center;
+    }
+    .btn-google-play {
+        margin-bottom: 15px;
+        margin-right: 0 !important; /* Override Bootstrap's me-sm-3 */
+    }
+}
+
+.jatri{
+    font-family: sans-serif; /* You can replace this with a specific font if you know it */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light background similar to the image */
+}
+/*----------------------------------- Footer Section----------------------------------------- */
+.footer-section {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    /* এখানে কোন মার্জিন বা প্যাডিং-বটম থাকলে তা 0 করে দিন */
+    margin-bottom: 0 !important; /* বুটস্ট্র্যাপের স্টাইল ওভাররাইড করতে পারে */
+    padding-bottom: 0 !important; /* যদি সমস্যা হয়, তবে এটি যোগ করুন */
+
+.footer-logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #ccc; /* বর্ণনার জন্য সামান্য হালকা লেখা */
+}
+
+.footer-heading {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    font-weight: 600; /* শিরোনামের জন্য মোটা অক্ষর */
+}
+
+.footer-link {
+    color: #ccc; /* লিঙ্কগুলির জন্য হালকা রঙ */
+    text-decoration: none;
+    display: block; /* লিঙ্কের মধ্যে স্পেসের জন্য ব্লক-লেভেল করা হয়েছে */
+    margin-bottom: 0.7rem; লিঙ্কগুলির মধ্যে ব্যবধান 
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: #ffffff; /* হোভার করলে সাদা */
+    text-decoration: underline;
+}
+
+.social-icons .social-icon-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #555; /* বৃত্তের জন্য গাঢ় ব্যাকগ্রাউন্ড */
+    color: #fff;
+    font-size: 1.1rem;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-icons .social-icon-circle:hover {
+    background-color: #777; /* হোভার করলে সামান্য হালকা */
+}
+
+.footer-divider {
+    border-color: #444; /* সামান্য হালকা লাইন */
+}
+
+.copyright-text {
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-top: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      margin-bottom: 0 !important;
+}
+#footer{
+      font-family: 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif; /* বাংলা ফন্ট সাপোর্ট যোগ করা হয়েছে */
+    margin: 0;
+ 
+}
+
+
+   </style>
+</head>
+<body>
+<header>
+    <!-- Navbar -->
+     
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-custom" href="index.html">
+               <i class="fas fa-bus-alt me-2" style="color: #ff5722; font-size: 1.8rem;"></i>Poribahan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                   <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="index.html"><strong>Home</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="booking.html"><strong> Book Now</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="AboutUS.html"><strong>About US</strong> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="#">FAQ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-login-custom" type="submit" id="loginButton">Login<i class="fas fa-user-circle ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </header>
+<main>   
+    <!-- Small banner above hero section -->
+    <div class="container text-center py-2" style="background-color: #e3f2fd; border-radius: 10px; margin-top: 10px; font-size: 0.9rem; color: #333;">
+         <i class="fas fa-info-circle me-2" style="color: #007bff;"></i> 
+         <span>Working on something a little classic? <a href="#" class="text-decoration-none">Switch Back</a></span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+       <div class="container hero-content"> 
+            <h1 class="hero-title">One Search to Travel Smarter <br> Across Bangladesh</h1>
+            <p class="hero-subtitle">Search, Swipe, Choose & Go!</p>
+
+            <div class="search-form-container">
+                <form class="row g-3 align-items-center">
+                    <div class="col-md-3">
+                        <label for="leavingFrom" class="visually-hidden">Leaving From</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-location-dot"></i></span>
+                            <input type="text" class="form-control" id="leavingFrom" placeholder="Leaving From">
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <label for="goingTo" class="visually-hidden">Going To</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-location-dot"></i></span>
+                            <input type="text" class="form-control" id="goingTo" placeholder="Going To">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="setDate" class="visually-hidden">Set Date</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                            <input type="date" class="form-control" id="setDate" placeholder="selec Your Date ">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="numPerson" class="visually-hidden">1 Person</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                            <input type="text" class="form-control" id="numPerson" placeholder="1 Person">
+                        </div>
+                    </div>
+                    <div class="col-md-2 button">
+                        <button type="submit" class="btn btn-search btn-md w-100" >
+                            <i class="fas fa-search me-2"></i> Search
+                        </button>
+
+                         <!-- <button type="submit" class="btn btn-search w-100">
+                            <i class="fas fa-search me-2"></i> Search
+                        </button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ----------------------------------Our Impact Section------------------------- --------->
+
+    <div class="impact-section">
+        <div class="main-content-section"> 
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-start">
+                    <p class="text-muted mb-1">Each step, a milestone</p>
+                    <h2 class="display-5 fw-bold" style="color: #212529;">Our Impact</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="impact-card">
+                        <i class="fas fa-ticket icon"></i>
+                        <h4 class="large-text">250 millions+</h4>
+                        <p>Tickets sold</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="impact-card">
+                       <i class="fas fa-handshake icon"></i>
+                        <h4 class="large-text">100 thousand+</h4>
+                        <p>Rental partners</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="impact-card">
+                        <i class="fas fa-users icon"></i>
+                        <h4 class="large-text">2 millions+</h4>
+                        <p>Registered Users</p>
+                    </div>
+                </div>
+                <!-- Additional placeholder cards for other sections if needed -->
+                 <div class="col-md-4 col-sm-6">
+                    <div class="impact-card">
+                        <i class="fas fa-bus icon"></i>
+                        <h4>Bus Operators</h4>
+                        <p>X+ operators partnered</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="impact-card">
+                        <i class="fas fa-car icon"></i>
+                        <h4>Vehicles on Road</h4>
+                        <p>Y+ vehicles available</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="impact-card">
+                        <i class="fas fa-globe icon"></i>
+                        <h4>Cities Covered</h4>
+                        <p>Z+ cities reached</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div> 
+   </section>
+
+
+
+<!-- -------------------------main-content-section----------------------------------- -->
+
+<section class="app-store">
+
+<div class="main-content-section">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-6 col-md-6 order-md-1 order-2 illustration-container">
+                    <img src="images/img/mb.png" alt="One-stop Travelling Platform" class="img-fluid">
+                </div>
+                <div class="col-lg-6 col-md-6 order-md-2 order-1 text-content">
+                    <p class="mb-1">Search, Book & GO!</p>
+                    <h1 class="display-5 fw-bold mb-3">One-stop Mobility App</h1>
+                    <p class="lead mb-4">
+                        Get affordable car rentals and bus tickets for stress & hassle-free travel.
+                    </p>
+                    <div class="app-badges">
+                        <a href="#" target="_blank">
+                            <img src="images/img/google_play.png" alt="Get it on Google Play">
+                        </a>
+                        
+                        <a href="#" target="_blank">
+                            <img src="images/img/app_store.svg.webp" alt="Download on the App Store">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!---------------------------------- Popular car  routes---------------------------------------- -->
+
+<section class="car-routes">
+    <div class="main-content-section">
+     <div class="container">
+        <div class="section-header">
+            <h1>Popular car, bus and launch routes</h1>
+            <p>
+                Explore all popular routes car, bus and launch, and get cost estimates for your next journey. Plan your
+                trip with ease by knowing the expenses for various modes of transport.
+            </p>
+        </div>
+
+        <div class="row routes-grid justify-content-center">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Rajshahi
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Chittagong
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Jamalpur
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Gazipur
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Gopalganj
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Kishoreganj
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Manikganj
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Narayanganj
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Pabna
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Sirajgonj
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Sunamganj
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Feni
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Gaibandha
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Naogaon
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Cox's Bazar
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Bogra
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Chottogram
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Sylhet
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Dinajpur
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Khulna
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Bandarban
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Barisal
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Chandpur
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Bhola
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Patuakhali
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Dhaka to Noakhali
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Narayanganj to Chottogram
+                </div>
+                <div class="route-item">
+                    <i class="fas fa-car"></i> Barishal to Khulna
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+
+
+<!-----------------------------Popular bus  operators ------------------------------>
+
+<section class="car-routes">
+ <div class="main-content-section">
+<div class="container">
+        <div class="section-header">
+            <h1>Popular bus and launch operators</h1>
+            <p>
+                Explore top bus and launch operators known for reliable, high-quality service. From car rentals to scenic
+                launch trips, these providers offer convenient, comfortable options for every journey.
+            </p>
+        </div>
+
+        <div class="row operators-grid justify-content-center">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Shah Fateh Ali Poribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Greenline Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Meghna Travels
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Romar Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> SB Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Green Bangla Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Jeetdah Express
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Shohagh Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Hanif Enterprise
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> New Dhaka Express
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Shibchar Star Deluxe
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Fahmida Haque Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Mass Travels
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Fatema Enterprise
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> London Express Limited
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Econo Service Limited
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Mimzal Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Jamuna Line Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> GMS Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> SD Paribahan
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-bus"></i> Imran Travels Pvt LTD
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="operator-item">
+                    <i class="fas fa-ship"></i> MV AB-A-ZAMZAM-7
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-ship"></i> M.V. BALIYA
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-ship"></i> M.V. BHOLA
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-ship"></i> M.V. Sundarbans
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-ship"></i> M.V. Kironkhola
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-ship"></i> M.V. Adventures
+                </div>
+                <div class="operator-item">
+                    <i class="fas fa-ship"></i> M.V. Sundarbans
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- --------------------------testimonial-section ---------------------------->
+ <section>
+    <div class="main-content-section">
+    <div class="testimonial-section">
+        <div class="section-header">
+            <p class="sub-heading">Listen from our audience</p>
+            <h1>Don't just believe our words</h1>
+        </div>
+
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-item-wrapper">
+                        <div class="testimonial-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <img src="images/test/male-1.png" alt="Nayeem Rahman" class="user-profile-img">
+                            <p class="review-text">
+                                "Perfect app for airport rides!" Booked an airport rental from Banani to Hazrat Shahjalal
+                                — super smooth! The driver came 10 minutes early, car was clean, AC working
+                                well. No stress about traffic or timing. Great service from Paribahon!
+                            </p>
+                            <div class="user-info">
+                                <div class="user-name">Nayeem Rahman</div>
+                                <div class="user-location">Dhaka</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-item-wrapper">
+                        <div class="testimonial-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <img src="images/test/female-1.png" alt="Rumana Haque" class="user-profile-img">
+                            <p class="review-text">
+                                "Absolutely loved the bus booking experience. So easy to find tickets and the process was super smooth. The journey was comfortable and on time!"
+                            </p>
+                            <div class="user-info">
+                                <div class="user-name">Rumana Haque</div>
+                                <div class="user-location">Bashundhara R/A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-item-wrapper">
+                        <div class="testimonial-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <img src="images/test/male-2.png" alt="Jannatul Ferdous" class="user-profile-img">
+                            <p class="review-text">
+                                "Great service for launch tickets! Saved so much time and effort. The app is user-friendly and reliable. Highly recommended for hassle-free travel."
+                            </p>
+                            <div class="user-info">
+                                <div class="user-name">Jannatul Ferdous</div>
+                                <div class="user-location">Mohammadpur</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-item-wrapper">
+                        <div class="testimonial-card">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            <img src="images/test/male-1.png" alt="Ahmed Khan" class="user-profile-img">
+                            <p class="review-text">
+                                "The car rental feature is a lifesaver. Needed a car urgently for a family trip, and Jatri provided excellent options quickly. Clean car, polite driver."
+                            </p>
+                            <div class="user-info">
+                                <div class="user-name">Ahmed Khan</div>
+                                <div class="user-location">Mirpur, Dhaka</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+        </div>
+    </div>
+    </div>
+ </section>
+
+
+<!--------------------------------- Jatri Section----------------------- -->
+<section class="jatri">
+ <div class="main-content-section">
+ <div class="container-fluid jatri-section">
+        <div class="container">
+            <div class="row align-items-center py-5">
+                <div class="col-lg-6 col-md-12 text-center text-lg-start mb-4 mb-lg-0">
+                    <img src="images/test/jatri.png" alt="Jatri Illustration" class="img-fluid jatri-illustration">
+                    </div>
+                <div class="col-lg-6 col-md-12 text-center text-lg-start">
+                    <p class="jatri-partner-app">Poribahan  Partner App</p>
+                    <h1 class="jatri-heading">Drive forward with Poribahan </h1>
+                    <p class="jatri-description">
+                        Add a new dimension to your car or microbus rental business by digitizing every trip.
+                        With exciting trip deals, flexible bookings and competitive pricing, you'll never go
+                        back to the old manual rental system again.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start align-items-center">
+                        <a href="#" class="btn-google-play mb-3 mb-sm-0 me-sm-3">
+                            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="img-fluid google-play-badge">
+                        </a>
+                        <a href="#" class="learn-more">Learn More <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+</main>
+<!--------------------------------------- Footer Section---------------- -- ---->
+
+  <footer class="footer-section py-5" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <img src="images/img/footer.png" alt="Logo" class="footer-logo mb-3"b style="border-radius: 20px;">
+                    <p class="footer-text">Poribahan.com একটি প্রিমিয়াম অনলাইন বুকিং পোর্টাল যা আপনাকে সারা দেশে বাস, লঞ্চ, বিমান এবং হোটেল রুম বুকিং পরিষেবার টিকিট দেশীয় ও আন্তর্জাতিক উভয় ক্ষেত্রেই ক্রয় করতে সহায়তা করে।</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">কোম্পানির তথ্য</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">শর্তাবলী</a></li>
+                        <li><a href="#" class="footer-link">সাধারণ জিজ্ঞাসা (FAQ)</a></li>
+                        <li><a href="#" class="footer-link">গোপনীয়তার বিজ্ঞপ্তি</a></li>
+                        <li><a href="#" class="footer-link">বাতিলকরণ নীতি</a></li>
+                        <li><a href="#" class="footer-link">টিকিট কিভাবে কিনবেন</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-heading">Poribahan  সম্পর্কে</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="footer-link">যোগাযোগ</a></li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-circle"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider mt-5 mb-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="copyright-text">&copy; 2025 Poribahan . সর্বস্বত্ব সংরক্ষিত। সংস্করণ 2.1.5</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- js script for login page  -->
+     <script>
+        document.getElementById("loginButton").addEventListener("click",function(){
+            window.location.href = "login.html";
+        });
+     </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f7f7f7; /* হালকা ধূসর ব্যাকগ্রাউন্ড */
+    color: #333;
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #777; /* ছবি থেকে নেওয়া কালার */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 38px;
+    color: #28a745; /* সবুজ রঙ */
+    font-weight: 700;
+    margin-top: 0;
+}
+
+.service-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Make cards same height */
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-card .card-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon {
+    font-size: 60px; /* আইকনের সাইজ */
+    color: #28a745; /* সবুজ রঙ */
+    margin-bottom: 20px;
+}
+
+.service-card .card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-card .card-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 32px;
+    }
+    .service-card .card-body {
+        padding: 25px;
+    }
+    .service-icon {
+        font-size: 50px;
+    }
+    .service-card .card-title {
+        font-size: 18px;
+    }
+    .service-card .card-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .subtitle {
+        font-size: 14px;
+    }
+    .main-title {
+        font-size: 28px;
+    }
+    .service-card .card-body {
+        padding: 20px;
+    }
+    .service-icon {
+        font-size: 45px;
+    }
+    .service-card .card-title {
+        font-size: 17px;
+    }
+    .service-card .card-text {
+        font-size: 13px;
+    }
+}
+
+
+/*---------------------------- Navbar css------------------------------ */
+ .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,.05);
+             position: fixed;
+            width:100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #333;
+        }
+        .d-flex{
+            background-color: #ff5722; /* Orange color */
+            border-color: #ff5722;
+            color: #fff;
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
