@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমাদের সম্পর্কে - পরিবহন</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Navbar Styling (as requested, kept similar) */
+        .navbar-custom {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 0.8rem 1rem;
+        }
+
+        .navbar-brand-custom {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .nav-link-custom {
+            color: #555;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+        .nav-link-custom:hover, .nav-link-custom.active {
+            color: #ff5722;
+        }
+        
+        .btn-login-custom {
+            background-color: #ff5722;
+            border-color: #ff5722;
+            color: #fff;
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .btn-login-custom:hover {
+            background-color: #e64a19;
+        }
+
+        /* About Us Section Styling */
+        .about-header {
+    /* একটি হালকা প্যাটার্নের ইমেজ যোগ করা হয়েছে এবং কালো আস্তরণ সরানো হয়েছে */
+    background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/light-grey-terrazzo.png');
+    background-color: #f8f9fa; /* যদি ইমেজ লোড না হয়, তাহলে একটি হালকা রঙ দেখাবে */
+    
+    /* হালকা ব্যাকগ্রাউন্ডের উপর লেখাকে স্পষ্ট করার জন্য রঙ পরিবর্তন করা হয়েছে */
+    color: #2c3e50; 
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0; /* সেকশনটিকে আলাদা করার জন্য একটি বর্ডার দেওয়া হয়েছে */
+}
+
+/* প্যারাগ্রাফের রঙও পরিবর্তন করা হয়েছে */
+.about-header p { 
+    font-size: 1.2rem; 
+    max-width: 700px; 
+    margin: 15px auto 0; 
+    color: #555; /* মূল শিরোনামের থেকে সামান্য হালকা রঙ */
+}
+
+        .about-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .about-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 15px auto 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: #ff5722;
+            border-radius: 2px;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .feature-card {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #ff5722;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h5 {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        .mission-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+        }
+        
+        /* Footer Styling */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Animation for fade-in effect on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-custom" href="#">
+                <i class="fas fa-bus-alt me-2" style="color: #ff5722;"></i>Poribahan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="index.html"><strong>Home</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="booking.html"><strong> Book Now</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom active" aria-current="page" href="AboutUS.html"><strong>About US</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="faq.html">FAQ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-login-custom" type="submit" id="loginButton">Login<i class="fas fa-user-circle ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main style="padding-top: 80px;"> <section class="about-header">
+        <div class="container">
+            <h1>আমাদের সম্পর্কে</h1>
+            <p>পরিবহন: আপনার ভ্রমণ সহজ করার দৃঢ় অঙ্গীকার।</p>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 fade-in-section">
+                <div class="mission-section">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">আমরা কারা?</h2>
+                    <p class="text-muted">
+                        আমরা ‘পরিবহন’ - একটি আধুনিক অনলাইন বাস টিকিট প্ল্যাটফর্ম, যা বাংলাদেশের ভ্রমণপ্রিয় মানুষের জন্য টিকিট কাটার প্রক্রিয়াকে সহজ এবং ঝামেলামুক্ত করার লক্ষ্যে তৈরি হয়েছে। প্রযুক্তির শক্তিকে কাজে লাগিয়ে আমরা দেশের শত শত বাস অপারেটরকে আপনার হাতের মুঠোয় নিয়ে এসেছি। আমাদের লক্ষ্য হলো, আপনাকে ঘরে বসেই আপনার কাঙ্ক্ষিত বাসের টিকিট কেনার সর্বোচ্চ সুবিধা প্রদান করা।
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 fade-in-section">
+                 <div class="mission-section">
+                     <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">আমাদের লক্ষ্য</h2>
+                    <p class="text-muted">
+                        আমাদের প্রধান লক্ষ্য হলো কাউন্টারের দীর্ঘ লাইন এবং টিকিট কালোবাজারি থেকে যাত্রীদের সম্পূর্ণ মুক্তি দেওয়া। আমরা একটি নির্ভরযোগ্য, নিরাপদ এবং ব্যবহারকারী-বান্ধব প্ল্যাটফর্ম প্রদান করতে প্রতিশ্রুতিবদ্ধ, যেখানে যে কেউ যেকোনো সময় দেশের যেকোনো প্রান্তের জন্য বাসের টিকিট বুক করতে পারবেন। আমরা চাই ভ্রমণ হোক আনন্দময়, টিকিট কাটার দুঃশ্চিন্তা নয়।
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <h2 class="section-title">কেন আমরা সেরা?</h2>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 fade-in-section">
+                <div class="card feature-card">
+                    <i class="fas fa-bus feature-icon"></i>
+                    <h5>বিস্তৃত বাস নেটওয়ার্ক</h5>
+                    <p class="text-muted">দেশের সকল রুটের সেরা বাস অপারেটরদের টিকিট এখন এক প্ল্যাটফর্মে।</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 fade-in-section">
+                <div class="card feature-card">
+                    <i class="fas fa-mouse-pointer feature-icon"></i>
+                    <h5>সহজ বুকিং প্রক্রিয়া</h5>
+                    <p class="text-muted">মাত্র কয়েক ক্লিকেই আপনার পছন্দের সিট বেছে নিন এবং টিকিট কিনুন।</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 fade-in-section">
+                <div class="card feature-card">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h5>নিরাপদ পেমেন্ট</h5>
+                    <p class="text-muted">বিকাশ, রকেট, নগদ বা কার্ডের মাধ্যমে সম্পূর্ণ নিরাপদে পেমেন্ট করুন।</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 fade-in-section">
+                <div class="card feature-card">
+                    <i class="fas fa-headset feature-icon"></i>
+                    <h5>২৪/৭ গ্রাহক সহায়তা</h5>
+                    <p class="text-muted">যেকোনো প্রয়োজনে আমাদের সাপোর্ট টিম সবসময় আপনার পাশে আছে।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p class="mb-0">&copy; 2025 পরিবহন। সর্বস্বত্ব সংরক্ষিত।</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    // Redirect to login page on button click
+    document.getElementById("loginButton").addEventListener("click", function(){
+        // You can change "login.html" to your actual login page URL
+        window.location.href = "login.html";
+    });
+
+    // JavaScript for fade-in animation on scroll
+    const faders = document.querySelectorAll('.fade-in-section');
+
+    const appearOptions = {
+        threshold: 0.2, // item is 20% visible
+        rootMargin: "0px 0px -50px 0px" // trigger a bit earlier
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('is-visible');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+</script>
+
+</body>
+</html>

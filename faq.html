@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="পরিবহন বাস টিকেট বুকিং সম্পর্কিত সাধারণ জিজ্ঞাসাসমূহ। আপনার সকল প্রশ্নের উত্তর এখানে খুঁজুন।">
+    <title>সাধারণ জিজ্ঞাসা - পরিবহন</title>
+
+    <!-- Google Fonts: Hind Siliguri for Bengali -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6rs_b2mQxSWgY4pOMqjI2siOHL5zG/zt1eP3B" crossorigin="anonymous">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- General Body & Animated Background --- */
+        body {
+            font-family: 'Hind Siliguri', Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(-45deg, #eef1f5, #d6e0ef, #e1e9f0, #f8f9fa);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Header & Navbar --- */
+        .navbar {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+            transition: background-color 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #343a40;
+        }
+        .navbar-brand .fa-bus-alt {
+            color: #ff5722;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: #495057;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #007bff;
+        }
+        .nav-link.active {
+            font-weight: 600;
+        }
+        .btn-login-custom {
+            background-color: #ff5722;
+            color: #ffffff;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-login-custom:hover {
+            background-color: #0056b3;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.25);
+        }
+
+        /* --- FAQ Section --- */
+        .faq-section {
+            padding: 60px 15px;
+        }
+        .faq-title {
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        .accordion-item {
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .accordion-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .accordion-button {
+            font-weight: 600;
+            color: #343a40;
+            background-color: #ffffff;
+            padding: 1.2rem 1.5rem;
+        }
+        .accordion-button:not(.collapsed) {
+            color: #ffffff;
+            background-color: #007bff;
+        }
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+            border-color: transparent;
+        }
+        .accordion-body {
+            color: #495057;
+            background-color: #ffffff;
+            font-size: 0.95rem;
+            padding: 1.5rem;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #343a40;
+            color: #f8f9fa;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* --- Back to Top Button --- */
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1030;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+        }
+        #backToTopBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-bus-alt me-2"></i>Poribahan 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><strong>Home</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html"><strong>Booking Now</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AboutUS.html"><strong>About US </strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="faq.html"><strong>FAQ </strong></a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-login-custom" type="button" id="loginButton">Login <i class="fas fa-user-circle"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 faq-section">
+            <h1 class="text-center faq-title">সাধারণ জিজ্ঞাসা (FAQs)</h1>
+            <div class="accordion" id="faqAccordion">
+
+                <!-- Question 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            কিভাবে একটি টিকিট বুক করব?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            আমাদের ওয়েবসাইটে আপনার যাত্রার উৎস, গন্তব্য এবং তারিখ নির্বাচন করুন। উপলব্ধ বাসগুলি থেকে আপনার পছন্দের বাসটি বেছে নিন, আসন নির্বাচন করুন এবং পেমেন্ট সম্পন্ন করুন। আপনার টিকিট ইমেলের মাধ্যমে পাঠানো হবে।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            বুকিং বাতিল বা পরিবর্তন কিভাবে করব?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            টিকেট বাতিল বা পরিবর্তনের জন্য, আপনার বুকিং রেফারেন্স নম্বর এবং ইমেল আইডি ব্যবহার করে 'আমার বুকিং' সেকশনে যান। বাতিলকরণ নীতি অনুযায়ী নির্দিষ্ট চার্জ প্রযোজ্য হতে পারে।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            আমার কি ই-টিকিট প্রিন্ট করতে হবে?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            না, সাধারণত আপনার ই-টিকিটের একটি ডিজিটাল কপি (মোবাইলে) দেখালেই হবে। তবে, কিছু অপারেটর প্রিন্ট করা কপি চাইতে পারে, তাই নিশ্চিত হওয়ার জন্য বুকিংয়ের সময় নির্দেশাবলী দেখে নিন।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            পেমেন্ট অপশন কি কি আছে?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            আমরা ক্রেডিট কার্ড, ডেবিট কার্ড, মোবাইল ব্যাংকিং (যেমন বিকাশ, নগদ, রকেট) এবং ইন্টারনেট ব্যাংকিং সহ বিভিন্ন সুরক্ষিত পেমেন্ট অপশন গ্রহণ করি।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            আমি যদি বাস মিস করি তাহলে কি হবে?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            আপনি যদি আপনার বাস মিস করেন, তবে সাধারণত টিকিটের টাকা ফেরত দেওয়া হয় না বা টিকিট পরিবর্তন করা হয় না। সময়মতো বাস কাউন্টারে পৌঁছানোর জন্য অনুরোধ করা হচ্ছে।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            টিকেট বুক করার জন্য কি অ্যাকাউন্ট তৈরি করতে হবে?
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            টিকেট বুক করার জন্য অ্যাকাউন্ট তৈরি করা বাধ্যতামূলক নয়, তবে একটি অ্যাকাউন্ট থাকলে আপনি আপনার বুকিং হিস্টরি দেখতে পারবেন, দ্রুত বুকিং করতে পারবেন এবং বিশেষ অফার পেতে পারবেন।
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- New Question 7 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            লাগেজ বা মালামালের নিয়ম কী?
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            সাধারণত প্রত্যেক যাত্রীর জন্য নির্দিষ্ট পরিমাণ ওজনের লাগেজ বিনামূল্যে বহন করার অনুমতি থাকে। অতিরিক্ত লাগেজের জন্য চার্জ প্রযোজ্য হতে পারে। মূল্যবান জিনিসপত্র, ভঙ্গুর সামগ্রী বা নিষিদ্ধ কোনো বস্তু বহন করা থেকে বিরত থাকুন।
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 পরিবহন। সর্বস্বত্ব সংরক্ষিত।</p>
+    </div>
+</footer>
+
+<!-- Back to Top Button HTML -->
+<button id="backToTopBtn" title="উপরে যান"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<!-- Custom JS for Back to Top Button -->
+<script>
+    // Get the button
+    const backToTopButton = document.getElementById("backToTopBtn");
+
+    // When the user scrolls down 100px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    backToTopButton.addEventListener("click", function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
+
+
+    // log in button 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    // Redirect to login page on button click
+    document.getElementById("loginButton").addEventListener("click", function(){
+        // You can change "login.html" to your actual login page URL
+        window.location.href = "login.html";
+    });
+
+    // JavaScript for fade-in animation on scroll
+    const faders = document.querySelectorAll('.fade-in-section');
+
+    const appearOptions = {
+        threshold: 0.2, // item is 20% visible
+        rootMargin: "0px 0px -50px 0px" // trigger a bit earlier
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('is-visible');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+</script>
+</script>
+
+</body>
+</html>
